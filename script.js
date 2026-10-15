@@ -4,7 +4,7 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   /* ---------- CONFIG (same email + Google Sheet endpoint as the live site) ---------- */
-  var ENDPOINT = 'https://emailjsfuntions-428145106157.asia-south1.run.app/client-submit-form';
+  var ENDPOINT = 'https://emailjsfuntions-428145106157.asia-south1.run.app/teknix-mumbai-popup-submit-form';
   var THANK_YOU = 'thankyou.html';
 
   document.body.classList.remove('js-off');
@@ -19,11 +19,11 @@
     '<div class="fld"><label for="{id}-name">Name</label><input id="{id}-name" type="text" name="name" placeholder="Your name" autocomplete="name" required></div>' +
     '<div class="fld"><label for="{id}-phone">Phone</label><input id="{id}-phone" type="tel" name="phone" placeholder="Phone number" autocomplete="tel" inputmode="tel" required></div>' +
     '<div class="fld"><label for="{id}-email">Email</label><input id="{id}-email" type="email" name="email" placeholder="Email address" autocomplete="email" required></div>' +
-    sel('floors', 'No. of Floors', ['1-3 Floors', '4-6 Floors', '7-10 Floors', '11-15 Floors', '15+ Floors']) +
-    sel('construction', 'Construction Type', ['Residential', 'Commercial', 'Industrial', 'Hospital', 'Hotel']) +
+    sel('floor', 'No. of Floors', ['1-3 Floors', '4-6 Floors', '7-10 Floors', '11-15 Floors', '15+ Floors']) +
+    sel('type', 'Construction Type', ['Residential', 'Commercial', 'Industrial', 'Hospital', 'Hotel']) +
     sel('location', 'Site Location', ['Mumbai', 'Bangalore', 'Chennai', 'Hyderabad']) +
     sel('budget', 'Select your budget', ['₹8-15 Lakhs', '₹15-20 Lakhs', '₹20-50 Lakhs', '₹50+ Lakhs']) +
-    sel('plan', 'Select your plan', ['Basic Plan', 'Standard Plan', 'Premium Plan', 'Luxury Plan']) +
+    sel('buying_plan', 'Select your plan', ['Basic Plan', 'Standard Plan', 'Premium Plan', 'Luxury Plan']) +
     '<div class="fld full"><label for="{id}-message">Additional requirements</label><textarea id="{id}-message" name="message" rows="3" placeholder="Additional requirements..."></textarea></div>' +
     '<div class="fsub"><button type="submit" class="btn wht"><span class="l">Submit</span><span class="ar l">→</span></button><span class="note" role="status"></span></div>';
 
@@ -44,8 +44,8 @@
     btn.disabled = true; label.textContent = 'Please Wait'; note.textContent = '';
     var body = new URLSearchParams({
       name: v('name'), email: v('email'), phone: v('phone'), message: v('message'),
-      floors: v('floors'), construction: v('construction'), location: v('location'),
-      budget: v('budget'), plan: v('plan'),
+      floor: v('floor'), type: v('type'), location: v('location'),
+      budget: v('budget'), buying_plan: v('buying_plan'),
       subject: 'Enquiry from Teknix Mumbai Landing Page', form_source: 'Mumbai Landing Page'
     });
 
